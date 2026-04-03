@@ -1,22 +1,19 @@
 import styles from './Packages.module.css';
-import { motion } from 'framer-motion';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Packages = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <div className={styles.packagesContainer}>
+    <div className={styles.packagesContainer} ref={revealRef}>
       <section className={styles.headerSection}>
-        <motion.div 
-          className="container"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="container hero-enter">
           <h1 className={styles.title}>
             Nuestros<br/>
             paquetes<br/>
             de servicios
           </h1>
-        </motion.div>
+        </div>
       </section>
 
       <section className={styles.pricingSection}>
@@ -24,7 +21,7 @@ const Packages = () => {
           <div className={styles.pricingGrid}>
             
             {/* Plan Inicial */}
-            <div className={styles.pricingCard}>
+            <div className={styles.pricingCard} data-reveal="fade-up" data-delay="0">
               <p className={styles.planTarget}>tus primeras ventas</p>
               <h3 className={styles.planName}>Plan inicial</h3>
               <div className={styles.price}>
@@ -44,7 +41,7 @@ const Packages = () => {
             </div>
 
             {/* Plan Standar (Destacado) */}
-            <div className={`${styles.pricingCard} ${styles.pricingCardActive}`}>
+            <div className={`${styles.pricingCard} ${styles.pricingCardActive}`} data-reveal="fade-up" data-delay="150">
               <p className={styles.planTarget}>Ventas y alcance</p>
               <h3 className={styles.planName}>Standar</h3>
               <div className={styles.price}>
@@ -67,7 +64,7 @@ const Packages = () => {
             </div>
 
             {/* Plan Pro */}
-            <div className={styles.pricingCard}>
+            <div className={styles.pricingCard} data-reveal="fade-up" data-delay="300">
                <p className={styles.planTarget}>Ventas seguras</p>
               <h3 className={styles.planName}>Pro ventas</h3>
               <div className={styles.price}>

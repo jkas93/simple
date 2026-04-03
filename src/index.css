@@ -1,3 +1,52 @@
+/* =============================================
+   @font-face — BricolageGrotesque (locales)
+   ============================================= */
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/assets/fonts/BricolageGrotesque-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/assets/fonts/BricolageGrotesque-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/assets/fonts/BricolageGrotesque-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/assets/fonts/BricolageGrotesque-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/assets/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/assets/fonts/BricolageGrotesque-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================================
+   Design Tokens
+   ============================================= */
 :root {
   --bg-color: #030006;
   --text-color: #ffffff;
@@ -7,9 +56,22 @@
   --border-color: rgba(255, 255, 255, 0.1);
   --glow-color: rgba(201, 0, 255, 0.4);
   --card-bg: rgba(15, 5, 25, 0.8);
-  --font-main: 'Inter', sans-serif;
+
+  /* Tipografía principal: BricolageGrotesque */
+  --font-main: 'BricolageGrotesque', system-ui, sans-serif;
+
+  /* Pesos semánticos */
+  --fw-extralight: 200;  /* Títulos decorativos, fade effect (formulario) */
+  --fw-light:      300;  /* Body secundario, labels */
+  --fw-regular:    400;  /* Párrafos, descripciones, nav links */
+  --fw-semibold:   600;  /* Títulos de sección, nav activo */
+  --fw-bold:       700;  /* Títulos de tarjetas, subtítulos hero */
+  --fw-extrabold:  800;  /* Hero headline, números grandes, precios */
 }
 
+/* =============================================
+   Reset
+   ============================================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,10 +80,14 @@
 
 body {
   font-family: var(--font-main);
+  font-weight: var(--fw-regular);
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
   width: 100%;
+  /* Mejora de renderizado tipográfico */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -38,7 +104,9 @@ ul {
   list-style: none;
 }
 
-/* Utilities */
+/* =============================================
+   Utilidades
+   ============================================= */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -48,14 +116,127 @@ ul {
 .text-center { text-align: center; }
 .text-primary { color: var(--primary); }
 
+/* Glow text — usado en spans del hero */
 .glow-text {
   text-shadow: 0 0 10px var(--glow-color);
 }
 
+/* Glass panel */
 .glass-panel {
   background: var(--card-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
   border-radius: 16px;
+}
+
+/* =============================================
+   Roles tipográficos globales
+   Asignamos pesos según análisis de las vistas
+   ============================================= */
+
+/* Hero headline — ExtraBold */
+h1 {
+  font-weight: var(--fw-extrabold);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Títulos de sección — Bold */
+h2 {
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Títulos de tarjeta / subsección — SemiBold */
+h3 {
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+}
+
+h4 {
+  font-weight: var(--fw-semibold);
+}
+
+/* Párrafos y body — Regular */
+p {
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+}
+
+/* Labels / subtítulos muted — Light */
+small, label, figcaption {
+  font-weight: var(--fw-light);
+}
+
+/* Botones — SemiBold */
+button, .btn {
+  font-family: var(--font-main);
+  font-weight: var(--fw-semibold);
+}
+
+/* Inputs / formulario — Regular */
+input, select, textarea {
+  font-family: var(--font-main);
+  font-weight: var(--fw-regular);
+}
+
+/* =============================================
+   Scroll Reveal Animations (reemplazo de Framer Motion)
+   ============================================= */
+
+/* Estado inicial — oculto */
+[data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Variantes de dirección */
+[data-reveal="fade-up"] {
+  transform: translate3d(0, 40px, 0);
+}
+
+[data-reveal="fade-down"] {
+  transform: translate3d(0, -40px, 0);
+}
+
+[data-reveal="fade-left"] {
+  transform: translate3d(40px, 0, 0);
+}
+
+[data-reveal="fade-right"] {
+  transform: translate3d(-40px, 0, 0);
+}
+
+[data-reveal="fade-scale"] {
+  transform: scale3d(0.92, 0.92, 1);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+/* Estado revelado — visible */
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+
+/* Hero — animación inmediata al cargar (no espera scroll) */
+.hero-enter {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

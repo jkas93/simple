@@ -1,18 +1,15 @@
 import styles from './Odontology.module.css';
-import { motion } from 'framer-motion';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Odontology = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <div className={styles.odontologyContainer}>
+    <div className={styles.odontologyContainer} ref={revealRef}>
       {/* HERO */}
       <section className={styles.heroSection}>
-        <motion.div 
-          className="container"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className={styles.heroContent}>
+        <div className="container">
+          <div className={`${styles.heroContent} hero-enter`}>
             <p className={styles.subtitle}>simple marketing</p>
             <h1 className={styles.title}>
               Consigue más pacientes<br/>
@@ -28,20 +25,20 @@ const Odontology = () => {
               <button className={styles.secondaryBtn}>¿Como funciona?</button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* 90 DIAS */}
       <section className={styles.daysSection}>
         <div className="container">
           <div className={styles.daysFlex}>
-            <div className={styles.daysText}>
+            <div className={styles.daysText} data-reveal="fade-right">
               <h2>Te ayudamos a <strong>conseguir <br/>pacientes</strong></h2>
               <p>fijos todos los meses</p>
               <h1 className={styles.bigText}>en 90 dias</h1>
               <button className={styles.primaryBtn}>Quiero mas pacientes</button>
             </div>
-            <div className={styles.chatsContainer}>
+            <div className={styles.chatsContainer} data-reveal="fade-left" data-delay="200">
               <div className={styles.chatBubbleRight}>Hola, quisiera agendar una cita! 😊</div>
               <div className={styles.chatBubbleLeft}>¡Hola! Claro que sí, será un gusto ayudarte</div>
               <div className={styles.chatBubbleRight}>Hola doc, creo que ya me toca mantenimiento 🤕</div>
@@ -54,23 +51,23 @@ const Odontology = () => {
       {/* LOSING MONEY */}
       <section className={styles.problemsSection}>
         <div className="container text-center">
-          <h2 className={styles.sectionTitle}>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up">
             Si esto te pasa, estás perdiendo<br/>dinero todos los días
           </h2>
           <div className={styles.problemsList}>
-             <div className={styles.problemItem}>
+             <div className={styles.problemItem} data-reveal="fade-up" data-delay="0">
                 <h3>Tu agenda tiene<br/>espacios vacios</h3>
                 <button className={styles.itemBtn}>Contactanos</button>
              </div>
-             <div className={styles.problemItem}>
+             <div className={styles.problemItem} data-reveal="fade-up" data-delay="100">
                 <h3>Dependes del<br/>boca a boca</h3>
                 <button className={styles.itemBtn}>Contactanos</button>
              </div>
-             <div className={styles.problemItem}>
+             <div className={styles.problemItem} data-reveal="fade-up" data-delay="200">
                 <h3>Respondes tarde<br/>los mensajes</h3>
                 <button className={styles.itemBtn}>Contactanos</button>
              </div>
-             <div className={styles.problemItem}>
+             <div className={styles.problemItem} data-reveal="fade-up" data-delay="300">
                 <h3>Publicas en redes<br/>pero no generas</h3>
                 <button className={styles.itemBtn}>Contactanos</button>
              </div>
@@ -81,13 +78,13 @@ const Odontology = () => {
       {/* SYSTEM */}
       <section className={styles.systemSection}>
         <div className="container text-center">
-          <h2 className={styles.sectionTitle}>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up">
             No hacemos marketing...<br/>
             <strong>creamos sistemas de pacientes</strong>
           </h2>
-          <p className={styles.systemSubtitle}>En Simple implementamos un sistema completo que:</p>
+          <p className={styles.systemSubtitle} data-reveal="fade-up" data-delay="100">En Simple implementamos un sistema completo que:</p>
 
-          <div className={styles.systemSteps}>
+          <div className={styles.systemSteps} data-reveal="fade-scale" data-delay="200">
              <img src="/assets/images/esfera-morada.svg" alt="Fondo" className={styles.systemBg} />
              <ul className={styles.stepList}>
                <li><span className={styles.stepLg}>1</span> Atrae pacientes<br/>con anuncios</li>
@@ -102,7 +99,7 @@ const Odontology = () => {
       {/* CUPOS */}
       <section className={styles.cuposSection}>
         <div className="container">
-          <div className={styles.cuposBox}>
+          <div className={styles.cuposBox} data-reveal="fade-scale">
              <div className={styles.cuposText}>
                <h2>Cupos<br/>limitados</h2>
                <p>Solo trabajamos con 3 clínicas o<br/>odontólogos por zona para evitar<br/>competencia directa.</p>
@@ -116,21 +113,21 @@ const Odontology = () => {
       {/* EXPECTATIONS */}
       <section className={styles.expectationsSection}>
         <div className="container">
-           <h2 className={styles.sectionTitleCenter}>Esto es lo que puedes esperar</h2>
+           <h2 className={styles.sectionTitleCenter} data-reveal="fade-up">Esto es lo que puedes esperar</h2>
            <div className={styles.expectationsGrid}>
-              <div className={styles.expectationBox}>
+              <div className={styles.expectationBox} data-reveal="fade-up" data-delay="0">
                  <span className={styles.checkIcon}>✓</span>
                  <h4>Más mensajes de<br/>pacientes interesados</h4>
               </div>
-              <div className={styles.expectationBox}>
+              <div className={styles.expectationBox} data-reveal="fade-up" data-delay="100">
                  <span className={styles.checkIcon}>✓</span>
                  <h4>Más citas<br/>agendadas</h4>
               </div>
-              <div className={styles.expectationBox}>
+              <div className={styles.expectationBox} data-reveal="fade-up" data-delay="200">
                  <span className={styles.checkIcon}>✓</span>
                  <h4>Menos tiempo perdido<br/>respondiendo</h4>
               </div>
-              <div className={styles.expectationBox}>
+              <div className={styles.expectationBox} data-reveal="fade-up" data-delay="300">
                  <span className={styles.checkIcon}>✓</span>
                  <h4>Mayor ingreso<br/>mensual</h4>
               </div>
@@ -141,32 +138,32 @@ const Odontology = () => {
       {/* 4 PASOS AGENDA */}
       <section className={styles.agendaStepsSection}>
         <div className="container text-center">
-           <div className={styles.agendaHeader}>
+           <div className={styles.agendaHeader} data-reveal="fade-up">
               <h2 className={styles.agendaTitle}>Así llenamos tu agenda en</h2>
               <span className={styles.hugeNumber4}>4</span>
               <h2 className={styles.agendaSubtitle}>pasos</h2>
            </div>
            
            <div className={styles.agendaGrid}>
-              <div className={styles.agendaStepItem}>
+              <div className={styles.agendaStepItem} data-reveal="fade-up" data-delay="0">
                  <span className={styles.agendaStepNum}>1</span>
                  <div className={styles.agendaStepTextBox}>
                     Atrae pacientes<br/>con anuncios
                  </div>
               </div>
-              <div className={styles.agendaStepItem}>
+              <div className={styles.agendaStepItem} data-reveal="fade-up" data-delay="100">
                  <span className={styles.agendaStepNum}>3</span>
                  <div className={styles.agendaStepTextBox}>
                     Automatiza<br/>el seguimiento
                  </div>
               </div>
-              <div className={styles.agendaStepItem}>
+              <div className={styles.agendaStepItem} data-reveal="fade-up" data-delay="200">
                  <span className={styles.agendaStepNum}>2</span>
                  <div className={styles.agendaStepTextBox}>
                     Convierte<br/>interesados en citas
                  </div>
               </div>
-              <div className={styles.agendaStepItem}>
+              <div className={styles.agendaStepItem} data-reveal="fade-up" data-delay="300">
                  <span className={styles.agendaStepNum}>4</span>
                  <div className={styles.agendaStepTextBox}>
                     Llena tu agenda<br/>de forma constante
@@ -181,7 +178,7 @@ const Odontology = () => {
       {/* REQUISITOS LIST Y CARTAS FINALES */}
       <section className={styles.finalCardsSection}>
         <div className="container">
-            <div className={styles.requirementsBox}>
+            <div className={styles.requirementsBox} data-reveal="fade-up">
                <h2 className={styles.reqTitle}>Este servicio es para ti si:</h2>
                <ul className={styles.reqList}>
                  <li><span>✓</span> Tienes clínica activa</li>
@@ -191,7 +188,7 @@ const Odontology = () => {
                </ul>
             </div>
 
-            <div className={styles.gratisCard}>
+            <div className={styles.gratisCard} data-reveal="fade-up" data-delay="100">
                <div className={styles.gratisText}>
                   <h2>trabajo<br/>gratis</h2>
                   <p>Si no generamos interesados en<br/>los primeros 90 días, trabajamos<br/>gratis hasta lograrlo.</p>
@@ -199,7 +196,7 @@ const Odontology = () => {
                </div>
             </div>
 
-            <div className={styles.bonusCard}>
+            <div className={styles.bonusCard} data-reveal="fade-up" data-delay="200">
                <h2>BONUS</h2>
                <ul className={styles.bonusList}>
                  <li>🎁 Guión de ventas por WhatsApp listo para usar</li>

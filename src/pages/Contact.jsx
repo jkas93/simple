@@ -1,11 +1,14 @@
 import styles from './Contact.module.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <div className={styles.contactContainer}>
+    <div className={styles.contactContainer} ref={revealRef}>
       <div className="container">
         <div className={styles.contactFlex}>
-          <div className={styles.contactTitleBox}>
+          <div className={styles.contactTitleBox} data-reveal="fade-right">
             <h1 className={styles.hugeTitle}>
               Registrate<br/>
               para<br/>
@@ -14,7 +17,7 @@ const Contact = () => {
             </h1>
           </div>
 
-          <div className={styles.formCard}>
+          <div className={styles.formCard} data-reveal="fade-left" data-delay="200">
             <h2 className={styles.formTitle}>
               Agenda tu <strong>asesoría<br/>gratuita</strong> de crecimiento digital
             </h2>

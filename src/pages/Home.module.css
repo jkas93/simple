@@ -11,6 +11,27 @@
   align-items: center;
   text-align: center;
   padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.remolinoHero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  max-width: 1400px;
+  height: auto;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+@keyframes swirlRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .heroContent {
@@ -25,9 +46,10 @@
 }
 
 .title {
-  font-size: 56px;
-  line-height: 1.1;
-  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 30px;
 }
 
@@ -93,9 +115,26 @@
 }
 
 .sectionTitle {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 60px;
+}
+
+.processSubtitle {
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.processTitle {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 60px;
+  letter-spacing: -0.01em;
 }
 
 .cardsGrid {
@@ -180,9 +219,9 @@
 }
 
 .solutionText {
-  color: var(--text-muted);
+  color: #bbb;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 50px;
 }
 
@@ -286,8 +325,9 @@
 }
 
 .serviceText h3 {
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1.2;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -458,18 +498,19 @@
 }
 
 .glowRing {
+  display: none;
+}
+
+.remolinoRing {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 4px solid var(--primary);
-  box-shadow: 0 0 50px var(--primary), inset 0 0 50px var(--primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 480px;
+  height: auto;
+  opacity: 1;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .refreshIcon {
@@ -484,18 +525,21 @@
   align-items: center;
   gap: 15px;
   text-align: left;
+  z-index: 5;
 }
 
-.stepBox1 { top: 70%; left: -50px; flex-direction: row-reverse; text-align: right; }
-.stepBox2 { top: 0%; left: -60px; flex-direction: row-reverse; text-align: right; }
+.stepBox1 { bottom: -40px; left: -120px; flex-direction: row-reverse; }
+.stepBox2 { top: 0px; left: -140px; flex-direction: row-reverse; }
 .stepBox3 { top: -40px; right: 0px; }
-.stepBox4 { top: 50%; right: -20px; }
+.stepBox4 { bottom: 0px; right: -120px; }
 
 .stepNum {
-  font-size: 80px;
+  font-size: 110px;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.15);
   line-height: 1;
+  user-select: none;
+  letter-spacing: -0.05em;
 }
 
 .stepContentBox {
@@ -510,9 +554,11 @@
   margin-bottom: 5px;
 }
 
-.stepContentBox p {
-  font-size: 11px;
-  color: var(--text-muted);
+.processCTA {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 80px;
+  padding-right: 40px;
 }
 
 /* TEXT SPLIT SECTION */
@@ -532,9 +578,10 @@
 }
 
 .splitLeft h2 {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 .splitLeft h2 span {
@@ -610,9 +657,10 @@
 }
 
 .discountText h2 {
-  font-size: 40px;
+  font-size: 34px;
   line-height: 1.2;
   font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .discountText h2 strong {

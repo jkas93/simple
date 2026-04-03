@@ -1,25 +1,22 @@
 import styles from './Services.module.css';
-import { motion } from 'framer-motion';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Services = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <div className={styles.servicesContainer}>
+    <div className={styles.servicesContainer} ref={revealRef}>
       <section className={styles.headerSection}>
-        <motion.div 
-          className="container text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="container text-center hero-enter">
           <p className={styles.subtitle}>TENEMOS LA SOLUCION</p>
           <h1 className={styles.title}>¿Que solucion debemos de darte?</h1>
-        </motion.div>
+        </div>
       </section>
 
       <section className="container">
         <div className={styles.solutionsGrid}>
           {/* Card Principal */}
-          <div className={`${styles.card} ${styles.cardLg}`}>
+          <div className={`${styles.card} ${styles.cardLg}`} data-reveal="fade-up">
             <div className={styles.cardContent}>
               <h2>Soy odontólogo <br/>y quiero mas <br/>clientes</h2>
               <div className={styles.btnGroup}>
@@ -30,25 +27,25 @@ const Services = () => {
             <img src="/assets/images/muela.svg" alt="Odontología" className={styles.cardImg} />
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} data-reveal="fade-up" data-delay="100">
             <h2>Quiero<br/>mas<br/>clientes</h2>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} data-reveal="fade-up" data-delay="200">
             <h2>Necesito<br/>contenido<br/>para redes</h2>
             <p>(Reels o post con etrategia)</p>
           </div>
 
-          <div className={`${styles.card} ${styles.cardWide}`}>
+          <div className={`${styles.card} ${styles.cardWide}`} data-reveal="fade-up" data-delay="100">
              <h2>Necesito una<br/>oficina virtual</h2>
              <p>(Pagina web o tienda virutal)</p>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} data-reveal="fade-up" data-delay="200">
              <h2>Quiero una<br/>estrategia<br/>de ventas</h2>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} data-reveal="fade-up" data-delay="300">
              <h2>Quiero que mi<br/>marca tenga<br/>identidad</h2>
              <p>(Branding)</p>
           </div>
@@ -60,7 +57,7 @@ const Services = () => {
         <div className="container">
           <div className={styles.pricingGrid}>
             {/* Plan Inicial */}
-            <div className={styles.pricingCard}>
+            <div className={styles.pricingCard} data-reveal="fade-up" data-delay="0">
               <p className={styles.planTarget}>tus primeras ventas</p>
               <h3 className={styles.planName}>Plan inicial</h3>
               <div className={styles.price}>
@@ -83,7 +80,7 @@ const Services = () => {
             </div>
 
             {/* Plan Standar (Highlight) */}
-            <div className={`${styles.pricingCard} ${styles.pricingCardActive}`}>
+            <div className={`${styles.pricingCard} ${styles.pricingCardActive}`} data-reveal="fade-up" data-delay="150">
               <p className={styles.planTarget}>Ventas y alcance</p>
               <h3 className={styles.planName}>Standar</h3>
               <div className={styles.price}>
@@ -104,7 +101,7 @@ const Services = () => {
             </div>
 
             {/* Plan Pro */}
-            <div className={styles.pricingCard}>
+            <div className={styles.pricingCard} data-reveal="fade-up" data-delay="300">
                <p className={styles.planTarget}>Ventas seguras</p>
               <h3 className={styles.planName}>Pro ventas</h3>
               <div className={styles.price}>

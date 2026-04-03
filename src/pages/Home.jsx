@@ -1,17 +1,15 @@
 import styles from './Home.module.css';
-import { motion } from 'framer-motion';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Home = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <div className={styles.homeContainer}>
+    <div className={styles.homeContainer} ref={revealRef}>
       {/* HERO SECTION */}
       <section className={styles.hero}>
-        <motion.div 
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className={`${styles.heroContent} hero-enter`}>
+          <img src="/assets/images/remolino.svg" alt="" className={styles.remolinoHero} />
           <p className={styles.subtitle}>simple marketing</p>
           <h1 className={styles.title}>
             Soluciones digitales de <br/>para <span className="text-primary glow-text">hacer crecer tu</span> <br/>negocio
@@ -24,35 +22,35 @@ const Home = () => {
             <button className={styles.primaryBtn}>Agendar una asesoría gratuita</button>
             <button className={styles.secondaryBtn}>¿Como funciona?</button>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* PROBLEMAS SECTION */}
       <section className={styles.problemsContainer}>
         <div className="container text-center">
-          <p className={styles.sectionSubtitle}>¿tú negocio no vende?</p>
-          <h2 className={styles.sectionTitle}>Muchos negocios tienen <br/>este problema:</h2>
+          <p className={styles.sectionSubtitle} data-reveal="fade-up">¿tú negocio no vende?</p>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up" data-delay="100">Muchos negocios tienen <br/>este problema:</h2>
           
           <div className={styles.cardsGrid}>
-            <div className={styles.card}>
+            <div className={styles.card} data-reveal="fade-up" data-delay="0">
               <h3>No llegan <br/>clientes</h3>
               <img src="/assets/images/persona.svg" alt="No llegan clientes" />
               <button className={styles.cardTag}>Tengo este problema</button>
             </div>
             
-            <div className={`${styles.card} ${styles.cardActive}`}>
+            <div className={`${styles.card} ${styles.cardActive}`} data-reveal="fade-up" data-delay="100">
               <h3>Redes <br/>sociales <br/>que no <br/>venden</h3>
               <img src="/assets/images/manos.svg" alt="Redes sociales que no venden" />
               <button className={styles.btnActive}>Quiero saber mas</button>
             </div>
             
-            <div className={styles.card}>
+            <div className={styles.card} data-reveal="fade-up" data-delay="200">
               <h3>Anuncios <br/>que no <br/>funcionan</h3>
               <img src="/assets/images/lapop-1.svg" alt="Anuncios que no funcionan" />
               <button className={styles.cardTag}>Tengo este problema</button>
             </div>
             
-            <div className={styles.card}>
+            <div className={styles.card} data-reveal="fade-up" data-delay="300">
               <h3>No tienen <br/>página web</h3>
               <img src="/assets/images/laptop-2.svg" alt="No tienen web" />
               <button className={styles.cardTag}>Tengo este problema</button>
@@ -64,16 +62,16 @@ const Home = () => {
       {/* SOLUTION SECTION */}
       <section className={styles.solutionContainer}>
         <div className={`container ${styles.solutionContent}`}>
-          <p className={styles.sectionSubtitle}>La solucion!</p>
-          <h2 className={styles.sectionTitle}>
+          <p className={styles.sectionSubtitle} data-reveal="fade-up">La solucion!</p>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up" data-delay="100">
             Creamos sistemas <br/><span className="text-primary glow-text">digitales</span> para atraer <br/>clientes a tu negocio.
           </h2>
-          <p className={styles.solutionText}>
-            Nuestro enfoque no se trata solo de hacer páginas web o publicar en redes sociales.
+          <p className={styles.solutionText} data-reveal="fade-up" data-delay="200">
+            Nuestro enfoque no se trata solo de hacer páginas web o publicar en redes sociales. <br />
             Creamos sistemas digitales completos que trabajan para tu negocio las 24 horas.
           </p>
 
-          <div className={styles.systemList}>
+          <div className={styles.systemList} data-reveal="fade-up" data-delay="300">
             <h3 className={styles.systemListTitle}>Nuestro sistema incluye:</h3>
             <ul className={styles.systemItems}>
               <li>
@@ -108,13 +106,13 @@ const Home = () => {
       {/* SERVICIOS DESTACADOS */}
       <section className={styles.featuredServices}>
         <div className="container text-center">
-          <p className={styles.sectionSubtitle}>Ofrecemos soluciones digitales<br/>diseñadas para ayudarte a crecer.</p>
-          <h2 className={styles.sectionTitle}>
+          <p className={styles.sectionSubtitle} data-reveal="fade-up">Ofrecemos soluciones digitales<br/>diseñadas para ayudarte a crecer.</p>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up" data-delay="100">
             Servicios que impulsan el <br/>crecimiento de tu negocio.
           </h2>
 
           <div className={styles.servicesGrid}>
-            <div className={styles.serviceCardLg}>
+            <div className={styles.serviceCardLg} data-reveal="fade-up">
               <div className={styles.serviceText}>
                 <h3>Todos los <br/>servicios</h3>
                 <p>Creamos, automatizamos y diseñamos estrategias digitales para que tu negocio atraiga clientes de forma constante, sin depender solo de redes sociales.</p>
@@ -123,7 +121,7 @@ const Home = () => {
               <img src="/assets/images/esfera-morada.svg" alt="Todos los servicios" className={styles.serviceImg} />
             </div>
 
-            <div className={styles.serviceCardLg}>
+            <div className={styles.serviceCardLg} data-reveal="fade-up" data-delay="150">
               <div className={styles.serviceText}>
                 <h3>Especialistas <br/>en marketing <br/>odontológico</h3>
                 <p>Ayudamos a consultorios y odontólogos a atraer más pacientes con estrategias, web profesionales y sistemas de atención automatizada que convierten consultas en citas.</p>
@@ -135,7 +133,7 @@ const Home = () => {
               <img src="/assets/images/muela.svg" alt="Odontología" className={styles.serviceImgMuela} />
             </div>
 
-            <div className={styles.serviceCardSm}>
+            <div className={styles.serviceCardSm} data-reveal="fade-up" data-delay="300">
               <div className={styles.serviceText}>
                 <h3>Hosting web <br/>+ dominio</h3>
                 <p>Nos encargamos de todo lo técnico para que tu página esté siempre online.</p>
@@ -152,29 +150,29 @@ const Home = () => {
       {/* TESTIMONIOS */}
       <section className={styles.testimonialsSection}>
         <div className="container text-center">
-          <p className={styles.sectionSubtitle}>TESTIMONIOS</p>
-          <h2 className={styles.sectionTitle}>CASOS REALES</h2>
+          <p className={styles.sectionSubtitle} data-reveal="fade-up">TESTIMONIOS</p>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up">CASOS REALES</h2>
           
           <div className={styles.testimonialsGrid}>
-            <div className={styles.testimonialCard}>
+            <div className={styles.testimonialCard} data-reveal="fade-up" data-delay="0">
               <h4>Christopher<br/>Mendoza</h4>
               <p className={styles.cardBrand}>Relativobar.</p>
               <p className={styles.cardDesc}>Creamos sistemas digitales que funcionan 24/7 para atraer clientes, y ayudarte a vender más sin complicaciones.</p>
             </div>
             
-            <div className={`${styles.testimonialCard} ${styles.testimonialCardActive}`}>
+            <div className={`${styles.testimonialCard} ${styles.testimonialCardActive}`} data-reveal="fade-up" data-delay="100">
               <h4>Christopher<br/>Mendoza</h4>
               <p className={styles.cardBrandActive}>Relativobar.</p>
               <p className={styles.cardDesc}>Creamos sistemas digitales que funcionan 24/7 para atraer clientes, y ayudarte a vender más sin complicaciones.</p>
             </div>
             
-            <div className={styles.testimonialCard}>
+            <div className={styles.testimonialCard} data-reveal="fade-up" data-delay="200">
               <h4>Christopher<br/>Mendoza</h4>
               <p className={styles.cardBrand}>Relativobar.</p>
               <p className={styles.cardDesc}>Creamos sistemas digitales que funcionan 24/7 para atraer clientes, y ayudarte a vender más sin complicaciones.</p>
             </div>
             
-            <div className={styles.testimonialCard}>
+            <div className={styles.testimonialCard} data-reveal="fade-up" data-delay="300">
               <h4>Christopher<br/>Mendoza</h4>
               <p className={styles.cardBrand}>Relativobar.</p>
               <p className={styles.cardDesc}>Creamos sistemas digitales que funcionan 24/7 para atraer clientes, y ayudarte a vender más sin complicaciones.</p>
@@ -186,12 +184,11 @@ const Home = () => {
       {/* LOGOS */}
       <section className={styles.logosSection}>
         <div className="container text-center">
-          <p className={styles.sectionSubtitle}>TESTIMONIOS</p>
-          <h2 className={styles.sectionTitle}>
+          <p className={styles.sectionSubtitle} data-reveal="fade-up">TESTIMONIOS</p>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up">
             Negocios que ya están creciendo<br/>con estrategias digitales.
           </h2>
-          <div className={styles.logosGrid}>
-            {/* Using text blocks as placeholders for the greyscale logos */}
+          <div className={styles.logosGrid} data-reveal="fade" data-delay="200">
             <div className={styles.logoItem}><strong>VALOTES</strong></div>
             <div className={styles.logoItem}><strong>PLAZA CHICKEN</strong></div>
             <div className={styles.logoItem}><i>Relativo</i></div>
@@ -204,13 +201,11 @@ const Home = () => {
       {/* PROCESO SECTION RING */}
       <section className={styles.processSection}>
         <div className="container text-center">
-          <p className={styles.sectionSubtitle}>Bienvenido</p>
-          <h2 className={styles.sectionTitle}>Así trabajamos contigo.</h2>
+          <p className={styles.processSubtitle} data-reveal="fade-up">Bienvenido</p>
+          <h2 className={styles.processTitle} data-reveal="fade-up">Así trabajamos contigo.</h2>
 
-          <div className={styles.ringWrapper}>
-             <div className={styles.glowRing}>
-                <div className={styles.refreshIcon}>↻</div>
-             </div>
+          <div className={styles.ringWrapper} data-reveal="fade-scale" data-delay="200">
+             <img src="/assets/images/remolino.svg" alt="" className={styles.remolinoRing} />
              
              <div className={`${styles.stepBox} ${styles.stepBox1}`}>
                <span className={styles.stepNum}>1</span>
@@ -245,7 +240,9 @@ const Home = () => {
              </div>
           </div>
           
-          <button className={styles.primaryBtn} style={{ marginTop: '80px' }}>Quiero una asesoría gratuita</button>
+          <div className={styles.processCTA}>
+             <button className={styles.primaryBtn}>Quiero una asesoría gratuita</button>
+          </div>
         </div>
       </section>
       
@@ -253,7 +250,7 @@ const Home = () => {
       <section className={styles.splitSection}>
         <div className="container">
            <div className={styles.splitFlex}>
-              <div className={styles.splitLeft}>
+              <div className={styles.splitLeft} data-reveal="fade-right">
                  <h2>
                    Si tu negocio<br/>
                    quiere <span className="text-primary">atraer<br/>más clientes,</span><br/>
@@ -261,7 +258,7 @@ const Home = () => {
                    es tener una<br/>estrategia
                  </h2>
               </div>
-              <div className={styles.splitRight}>
+              <div className={styles.splitRight} data-reveal="fade-left" data-delay="200">
                  <p className={styles.splitIntro}>
                     Por eso ofrecemos una <strong>asesoría<br/>inicial gratuita</strong>, donde analizamos tu<br/>situación y te mostramos cómo<br/>mejorar tu presencia online.
                  </p>
@@ -278,13 +275,13 @@ const Home = () => {
       {/* CALL TO ACTION BOTTOM */}
       <section className={styles.ctaBottomSection}>
         <div className="container text-center">
-           <p className={styles.sectionSubtitle}>El siguiente paso</p>
-           <h2 className={styles.sectionTitle}>¿Listo para llevar tu<br/>negocio al siguiente nivel?</h2>
-           <p className={styles.ctaSubtitleText}>Agenda una asesoría gratuita y descubre cómo podemos<br/>ayudarte a atraer más clientes con estrategias digitales.</p>
+           <p className={styles.sectionSubtitle} data-reveal="fade-up">El siguiente paso</p>
+           <h2 className={styles.sectionTitle} data-reveal="fade-up">¿Listo para llevar tu<br/>negocio al siguiente nivel?</h2>
+           <p className={styles.ctaSubtitleText} data-reveal="fade-up" data-delay="100">Agenda una asesoría gratuita y descubre cómo podemos<br/>ayudarte a atraer más clientes con estrategias digitales.</p>
            
            <button className={styles.primaryBtn} style={{ margin: '40px 0 80px' }}>Agendar una asesoría gratuita</button>
            
-           <div className={styles.discountCard}>
+           <div className={styles.discountCard} data-reveal="fade-up" data-delay="200">
               <div className={styles.discountText}>
                  <h2>
                    Conviertete en<br/>
