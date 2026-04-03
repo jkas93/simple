@@ -1,0 +1,83 @@
+.navbar {
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(3, 0, 6, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+}
+
+.navLinks a {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: var(--primary);
+}
+
+.contactBtn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(201, 0, 255, 0.4);
+}
+
+.contactBtn:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 25px rgba(201, 0, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .navLinks {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 3;
+    width: 100%;
+  }
+  .navLinks a {
+    font-size: 11px;
+  }
+  .contactBtn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  .logo img {
+    height: 20px;
+  }
+}

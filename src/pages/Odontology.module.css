@@ -1,0 +1,489 @@
+.odontologyContainer {
+  padding-top: 100px;
+}
+
+.heroSection {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.ctaGroup {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.primaryBtn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(201, 0, 255, 0.4);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid var(--border-color);
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 90 DIAS */
+.daysSection {
+  padding: 80px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 40px;
+}
+
+.daysFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.daysText {
+  max-width: 50%;
+}
+
+.daysText h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.daysText strong {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.daysText p {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.bigText {
+  font-size: 80px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.chatsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 400px;
+}
+
+.chatBubbleRight {
+  background: var(--primary);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 20px 20px 0 20px;
+  align-self: flex-end;
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(201, 0, 255, 0.3);
+}
+
+.chatBubbleLeft {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 20px 20px 20px 0;
+  align-self: flex-start;
+  font-size: 14px;
+}
+
+/* PROBLEMS */
+.problemsSection {
+  padding: 80px 0;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 50px;
+  line-height: 1.4;
+}
+
+.problemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.problemItem {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.problemItem h3 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.itemBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* SYSTEM */
+.systemSection {
+  padding: 80px 0;
+}
+
+.systemSubtitle {
+  color: var(--text-muted);
+  margin-bottom: 60px;
+}
+
+.systemSteps {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.systemBg {
+  position: absolute;
+  width: 400px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.stepList {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.stepList li {
+  background: rgba(5, 0, 10, 0.9);
+  border: 1px solid var(--border-color);
+  padding: 15px 30px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 350px;
+}
+
+.stepLg {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* CUPOS */
+.cuposSection {
+  padding: 80px 0;
+}
+
+.cuposBox {
+  background: var(--card-bg);
+  border: 1px solid var(--primary);
+  border-radius: 30px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 50px rgba(201, 0, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cuposText {
+  z-index: 2;
+}
+
+.cuposText h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* EXPECTATIONS */
+.expectationsSection {
+  padding: 80px 0;
+}
+
+.sectionTitleCenter {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.expectationsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.expectationBox {
+  background: transparent;
+  border: 1px solid var(--primary);
+  border-radius: 40px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.checkIcon {
+  background: white;
+  color: black;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.expectationBox h4 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* AGENDA STEPS */
+.agendaStepsSection {
+  padding: 80px 0;
+}
+
+.agendaHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.agendaTitle, .agendaSubtitle {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.hugeNumber4 {
+  font-size: 80px;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.agendaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.agendaStepItem {
+  position: relative;
+  text-align: left;
+}
+
+.agendaStepNum {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  font-size: 80px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.agendaStepTextBox {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 1;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+.primaryBtnFull {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(201, 0, 255, 0.4);
+}
+
+/* FINAL CARDS SECTION */
+.finalCardsSection {
+  padding: 80px 0;
+}
+
+.requirementsBox {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.reqTitle {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.reqList {
+  display: inline-block;
+  text-align: left;
+}
+
+.reqList li {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.reqList li span {
+  margin-right: 15px;
+}
+
+.gratisCard {
+  background: var(--card-bg);
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  padding: 50px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gratisText h2 {
+  font-size: 50px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.gratisText p {
+  margin-bottom: 30px;
+  color: var(--text-muted);
+}
+
+.darkBtnSm {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: 1px solid var(--primary);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.darkBtnSm:hover {
+  background: var(--primary);
+}
+
+.bonusCard {
+  background: var(--card-bg);
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bonusCard h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.bonusList {
+  margin-bottom: 30px;
+}
+
+.bonusList li {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 32px; }
+  .ctaGroup { flex-direction: column; }
+  .daysFlex { flex-direction: column; gap: 40px; }
+  .daysText { max-width: 100%; text-align: center; }
+  .bigText { font-size: 50px; }
+  .chatsContainer { width: 100%; }
+  .stepList li { width: 100%; flex-direction: column; text-align: center; }
+  .cuposBox { flex-direction: column; padding: 30px; text-align: center; gap: 20px; }
+  .muelaImg { position: static; height: 150px; }
+  .expectationsGrid, .agendaGrid { grid-template-columns: 1fr; }
+  .hugeNumber4 { font-size: 50px; }
+  .agendaStepNum { position: static; margin-bottom: -10px; display: block; }
+  .gratisCard, .bonusCard { padding: 30px; }
+  .gratisText h2 { font-size: 36px; }
+}
+
+.cuposText p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.muelaImg {
+  position: absolute;
+  right: 50px;
+  bottom: -40px;
+  height: 250px;
+  z-index: 1;
+  filter: drop-shadow(0 0 20px rgba(201, 0, 255, 0.5));
+}
