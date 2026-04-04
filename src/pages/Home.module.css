@@ -144,50 +144,147 @@
   margin-top: 40px;
 }
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 30px 20px;
+.cardWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  min-height: 350px;
-  transition: all 0.3s ease;
+  gap: 25px;
+  position: relative;
+  transition: all 0.4s ease;
+  z-index: 1;
 }
 
-.card h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
+.cardWrapper:hover, .cardActive {
+  transform: scale(1.05);
+  z-index: 10;
 }
 
-.card img {
-  width: 150px;
-  height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px rgba(201, 0, 255, 0.2));
-}
-
-.cardTag {
-  background: rgba(201, 0, 255, 0.2);
-  color: #e032ff;
+.card {
+  width: 100%;
+  background-color: transparent; 
   border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
+  border-radius: 16px;
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 480px; 
+  transition: all 0.4s ease;
+  position: relative;
+  isolation: isolate;
+  overflow: visible; 
+  cursor: pointer;
+  flex-grow: 1;
 }
 
-.cardActive {
-  border-color: var(--primary);
-  box-shadow: 0 0 30px rgba(201, 0, 255, 0.15);
-  transform: translateY(-10px);
+/* Layer 1: Fondo de la tarjeta negro */
+.cardBg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: #020005;
+  z-index: 1; 
+  transition: all 0.4s ease;
+  pointer-events: none;
 }
 
-.cardActive h3 {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+/* Layer 2: Imagen */
+.cardImg {
+  width: 100%; 
+  height: 280px; 
+  object-fit: cover; 
+  object-position: bottom center; 
+  margin-top: auto; 
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  filter: drop-shadow(0 -10px 20px rgba(0, 0, 0, 0.5)); 
+  position: relative;
+  z-index: 2; 
+  pointer-events: none;
+}
+
+/* Layer 3: Texto */
+.cardText {
+  padding: 35px 30px 10px;
+  font-size: clamp(28px, 2.5vw, 34px);
+  line-height: 1;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: white;
+  position: relative;
+  z-index: 3; 
+}
+
+/* Layer 4: Borde */
+.cardBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid #8c0cff;
+  z-index: 4; 
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Layer 5: Efecto Granular Externo */
+.cardGranular {
+  position: absolute;
+  inset: -25px; 
+  border-radius: 32px; 
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.65  0 0 0 0 0  0 0 0 0 1  0 0 0 25 -11'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-blend-mode: normal; 
+  
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+                      linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-composite: intersect;
+
+  z-index: 0; /* Ubicado abajo del fondo para que visualmente fluya hacia afuera sin tapar nada */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* HOVER STATES ON WRAPPER */
+.cardWrapper:hover .cardGranular, .cardActive .cardGranular {
+  opacity: 0.8; 
+}
+
+/* Removed hover border state since it's permanently visible now */
+
+/* BUTTON */
+.cardTag {
+  background: var(--primary, #d800ff);
+  color: white;
+  border: 1.5px solid var(--primary, #d800ff);
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  width: auto;
+  white-space: nowrap;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.cardWrapper:hover .cardTag, .cardActive .cardTag {
+  background: #020005;
+  color: white;
+  border: 1.5px solid #d800ff;
+  box-shadow: 0 0 20px rgba(201, 0, 255, 0.4);
+}
+
+.cardTag:hover {
+  box-shadow: 0 0 20px rgba(201, 0, 255, 0.6) !important;
 }
 
 .btnActive {
@@ -247,7 +344,7 @@
   align-items: center;
   background: var(--card-bg);
   padding: 15px 30px;
-  border-radius: 40px;
+  border-radius: 9px;
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
 }
@@ -298,81 +395,132 @@
 }
 
 .serviceCardLg {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 24px;
-  padding: 40px;
+  background: #05000a; 
+  border: 1px solid #d800ff; 
+  border-radius: 20px; 
+  padding: 60px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
   position: relative;
+  /* Soft inner glow backing the text */
+  background-image: radial-gradient(circle at left center, rgba(160, 30, 230, 0.15) 0%, transparent 60%);
 }
 
 .serviceCardSm {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 24px;
-  padding: 40px;
+  background: #05000a;
+  border: 1px solid #d800ff;
+  border-radius: 20px;
+  padding: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  background-image: radial-gradient(circle at left center, rgba(160, 30, 230, 0.15) 0%, transparent 60%);
+  /* "Echoing Lines" multi-border offset downwards and leftwards */
+  box-shadow: 
+    -3px 3px 0 0 #05000a, -4px 4px 0 0 #d800ff,
+    -7px 7px 0 0 #05000a, -8px 8px 0 0 #a900ff,
+    -11px 11px 0 0 #05000a, -12px 12px 0 0 #5c008a;
 }
 
 .serviceText {
-  max-width: 500px;
+  max-width: 550px;
   z-index: 2;
+  position: relative;
 }
 
-.serviceText h3 {
-  font-size: 30px;
-  line-height: 1.2;
-  font-weight: 700;
+/* Specific alignments for Small Hosting Card */
+.serviceCardSm .serviceText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: 20px;
+}
+
+.serviceCardLg .serviceText h3 {
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 0.95;
+  font-weight: 800;
   margin-bottom: 20px;
+  color: white;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.serviceCardSm .serviceText h3 {
+  font-size: clamp(32px, 3.5vw, 44px);
+  line-height: 0.95;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: white;
+  letter-spacing: -0.04em;
+  text-align: center;
 }
 
 .serviceText p {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 35px;
+}
+
+.serviceCardSm .serviceText p {
+  max-width: 420px;
+  text-align: center;
 }
 
 .cardBtn {
-  background: transparent;
+  background: #020005;
   color: white;
-  border: 1px solid var(--border-color);
-  padding: 8px 24px;
-  border-radius: 20px;
-  font-size: 14px;
+  border: 1.5px solid #d800ff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 0 15px rgba(201, 0, 255, 0.25);
+  transition: all 0.3s ease;
 }
 
 .cardBtn:hover {
-  border-color: var(--primary);
+  background: rgba(201, 0, 255, 0.15);
+  box-shadow: 0 0 25px rgba(201, 0, 255, 0.5);
 }
 
 .primaryBtnSm {
-  background: var(--primary);
+  background: #d800ff;
   color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
+  border: 1.5px solid #d800ff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(201, 0, 255, 0.25);
+}
+
+.primaryBtnSm:hover {
+  background: #c300e6;
+  box-shadow: 0 6px 20px rgba(201, 0, 255, 0.5);
 }
 
 .cardActionGroup {
   display: flex;
   gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .cardActionGroupCol {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  min-width: 150px;
+  min-width: 200px;
+  margin-right: 20px;
 }
 
 .serviceImg {
@@ -380,15 +528,15 @@
   right: -50px;
   top: -50px;
   height: 150%;
-  opacity: 0.8;
+  opacity: 0.9;
   z-index: 1;
 }
 
 .serviceImgMuela {
   position: absolute;
-  right: 50px;
-  bottom: -20px;
-  height: 200px;
+  right: -20px;
+  top: -30px;
+  height: 120%;
   z-index: 1;
 }
 
@@ -405,57 +553,117 @@
 }
 
 .testimonialCard {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 30px 20px;
+  background-color: transparent; 
+  border: none; /* Moved to ::after */
+  border-radius: 16px;
+  padding: 40px 30px;
   text-align: left;
-  transition: all 0.3s ease;
-  min-height: 250px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-height: 480px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: visible; 
 }
 
-.testimonialCardActive {
-  background: rgba(201, 0, 255, 0.1);
-  border: 1px solid var(--primary);
-  box-shadow: 0 0 30px rgba(201, 0, 255, 0.15);
+/* THE NOISE CLOUD (Rendered Underneath) */
+.testimonialCard::before {
+  content: "";
+  position: absolute;
+  inset: -25px; 
+  border-radius: 32px; 
+  
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.65  0 0 0 0 0  0 0 0 0 1  0 0 0 25 -11'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-blend-mode: normal; 
+
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+                      linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-composite: intersect;
+
+  z-index: 0; /* Renders BELOW the solid core but within the card's stacking context */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
-.testimonialCardActive::before {
-   content: '';
-   position: absolute;
-   width: 100%;
-   height: 100px;
-   background: var(--primary);
-   filter: blur(80px);
-   opacity: 0.3;
+/* THE IMPENETRABLE SOLID CORE (Blocks noise entirely) */
+.testimonialCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit; 
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Inactive border */
+  background-color: #05000a; /* Physically blocks all noise behind it, never fades! */
+  z-index: 1;
+  /* Invisible gradient shadow initially */
+  box-shadow: inset 0 -150px 150px -50px rgba(132, 28, 175, 0); 
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.testimonialCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(201, 0, 255, 0.25); 
+  z-index: 10;
+}
+
+.testimonialCard:hover::before {
+  opacity: 0.8; 
+}
+
+.testimonialCard:hover::after {
+  border: 1px solid #d800ff; /* Activate precise border */
+  /* Activate internal gradient bloom smoothly */
+  box-shadow: inset 0 -250px 200px -50px rgba(132, 28, 175, 0.95); 
 }
 
 .testimonialCard h4 {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.2;
+  position: relative;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: white;
+  letter-spacing: -0.02em;
+  margin: 0 0 5px 0;
+  z-index: 2; /* keep text firmly above everything */
 }
 
 .cardBrand {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  position: relative;
+  color: #888;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+  transition: color 0.4s ease;
+  letter-spacing: -0.02em;
+  z-index: 2;
 }
 
-.cardBrandActive {
-  color: #e032ff;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+.testimonialCard:hover .cardBrand {
+  color: #df2ae0;
 }
 
 .cardDesc {
-  font-size: 12px;
-  color: rgba(255,255,255,0.7);
+  position: relative;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
+  transition: color 0.4s ease;
+  margin: 0; /* Clear default margins that might be pushing it wildly */
+  z-index: 2;
+}
+
+.testimonialCard:hover .cardDesc {
+  color: rgba(255, 255, 255, 1);
 }
 
 /* LOGOS SECTION */
@@ -463,14 +671,32 @@
   padding: 60px 0 100px;
 }
 
-.logosGrid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
+.carouselContainer {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
   margin-top: 50px;
-  opacity: 0.5;
-  flex-wrap: wrap;
+  padding: 20px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.carouselTrack {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 80px;
+  animation: scrollCarousel 40s linear infinite;
+  opacity: 0.6;
+}
+
+.carouselTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollCarousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 40px)); }
 }
 
 .logoItem {
@@ -478,11 +704,18 @@
   color: white;
   filter: grayscale(100%);
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .logoItem:hover {
   filter: grayscale(0%);
   opacity: 1;
+}
+
+.logoItem img {
+  max-height: 50px;
+  max-width: 150px;
+  object-fit: contain;
 }
 
 /* PROCESO SECTION RING */
@@ -492,73 +725,104 @@
 
 .ringWrapper {
   position: relative;
-  width: 800px;
-  height: 600px;
-  margin: 100px auto 0;
+  width: 1000px;
+  max-width: 100%;
+  height: 650px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.glowRing {
-  display: none;
-}
-
-.remolinoRing {
+.centerSVGImage {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 480px;
+  width: 480px; 
   height: auto;
-  opacity: 1;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
-}
-
-.refreshIcon {
-  font-size: 80px;
-  font-weight: bold;
-  color: white;
 }
 
 .stepBox {
   position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-align: left;
+  width: 320px;
   z-index: 5;
 }
 
-.stepBox1 { bottom: -40px; left: -120px; flex-direction: row-reverse; }
-.stepBox2 { top: 0px; left: -140px; flex-direction: row-reverse; }
-.stepBox3 { top: -40px; right: 0px; }
-.stepBox4 { bottom: 0px; right: -120px; }
-
 .stepNum {
-  font-size: 110px;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.15);
-  line-height: 1;
-  user-select: none;
-  letter-spacing: -0.05em;
+  font-size: 140px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 0.8;
+  position: absolute;
+  z-index: 1;
+  text-shadow: none;
 }
 
 .stepContentBox {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  padding: 15px 25px;
+  background: rgba(10, 5, 20, 0.95);
+  border: 1px solid rgba(201, 0, 255, 0.4);
+  padding: 25px 30px;
   border-radius: 12px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  text-align: left;
 }
 
 .stepContentBox h4 {
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #ccc;
 }
 
-.processCTA {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 80px;
-  padding-right: 40px;
+.stepContentBox p {
+  color: white;
+  font-size: 14px;
+}
+
+/* Position 1: Bottom Left */
+.stepBox1 { bottom: 50px; left: 0px; }
+.stepBox1 .stepNum { top: -60px; right: -25px; }
+
+/* Position 2: Top Left */
+.stepBox2 { top: 70px; left: 20px; }
+.stepBox2 .stepNum { top: -60px; right: -25px; }
+
+/* Position 3: Top Right */
+.stepBox3 { top: 50px; right: 20px; }
+.stepBox3 .stepNum { top: -60px; left: -40px; }
+
+/* Position 4: Mid-Right */
+.stepBox4 { 
+  top: 55%; 
+  right: 20px; 
+  transform: translateY(-50%); 
+}
+.stepBox4 .stepNum { top: -60px; left: -40px; }
+
+.processFloatingBtn {
+  position: absolute;
+  bottom: 0px;
+  right: 180px;
+  background-color: #d800ff;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 40px;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(216, 0, 255, 0.6);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+.processFloatingBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(216, 0, 255, 0.8);
 }
 
 /* TEXT SPLIT SECTION */
@@ -717,7 +981,7 @@
   .serviceImg, .serviceImgMuela { position: relative; right: auto; bottom: auto; top: auto; height: 150px; margin-bottom: 20px; order: -1; }
   .splitFlex { flex-direction: column; }
   .splitLeft h2 { font-size: 32px; text-align: center; }
-  .logosGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .carouselContainer { mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
   
   /* Simplify the ring to a vertical stack on mobile */
   .ringWrapper { display: flex; flex-direction: column; gap: 20px; height: auto; width: 100%; margin: 30px auto 0; }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -12,6 +13,8 @@ const Home = () => {
           <img 
             src="/assets/images/remolino.webp" 
             alt="" 
+            width="600"
+            height="600"
             className={styles.remolinoHero} 
             fetchpriority="high"
           />
@@ -24,8 +27,8 @@ const Home = () => {
           </p>
           
           <div className={styles.ctaGroup}>
-            <button className={styles.primaryBtn}>Agendar una asesoría gratuita</button>
-            <button className={styles.secondaryBtn}>¿Como funciona?</button>
+            <Link to="/contacto" className={styles.primaryBtn}>Agendar una asesoría gratuita</Link>
+            <Link to="/servicios" className={styles.secondaryBtn}>¿Como funciona?</Link>
           </div>
         </div>
       </section>
@@ -37,28 +40,48 @@ const Home = () => {
           <h2 className={styles.sectionTitle} data-reveal="fade-up" data-delay="100">Muchos negocios tienen <br/>este problema:</h2>
           
           <div className={styles.cardsGrid}>
-            <div className={styles.card} data-reveal="fade-up" data-delay="0">
-              <h3>No llegan <br/>clientes</h3>
-              <img src="/assets/images/persona.webp" alt="No llegan clientes" loading="lazy" />
-              <button className={styles.cardTag}>Tengo este problema</button>
+            <div className={styles.cardWrapper} data-reveal="fade-up">
+              <div className={styles.card}>
+                <div className={styles.cardBg}></div>
+                <h3 className={styles.cardText}>No llegan <br/>clientes</h3>
+                <img src="/assets/images/persona.webp" alt="No llegan clientes" width="300" height="300" loading="lazy" className={styles.cardImg} />
+                <div className={styles.cardBorder}></div>
+                <div className={styles.cardGranular}></div>
+              </div>
+              <Link to="/servicios" className={styles.cardTag}>Tengo este problema</Link>
             </div>
             
-            <div className={`${styles.card} ${styles.cardActive}`} data-reveal="fade-up" data-delay="100">
-              <h3>Redes <br/>sociales <br/>que no <br/>venden</h3>
-              <img src="/assets/images/manos.webp" alt="Redes sociales que no venden" loading="lazy" />
-              <button className={styles.btnActive}>Quiero saber mas</button>
+            <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="100">
+              <div className={styles.card}>
+                <div className={styles.cardBg}></div>
+                <h3 className={styles.cardText}>Redes <br/>sociales <br/>que no <br/>venden</h3>
+                <img src="/assets/images/estadistica.svg" alt="Redes sociales" width="300" height="300" loading="lazy" className={styles.cardImg} />
+                <div className={styles.cardBorder}></div>
+                <div className={styles.cardGranular}></div>
+              </div>
+              <Link to="/servicios" className={styles.cardTag}>Quiero saber mas</Link>
             </div>
             
-            <div className={styles.card} data-reveal="fade-up" data-delay="200">
-              <h3>Anuncios <br/>que no <br/>funcionan</h3>
-              <img src="/assets/images/lapop-1.svg" alt="Anuncios que no funcionan" loading="lazy" />
-              <button className={styles.cardTag}>Tengo este problema</button>
+            <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="200">
+              <div className={styles.card}>
+                <div className={styles.cardBg}></div>
+                <h3 className={styles.cardText}>Anuncios <br/>que no <br/>funcionan</h3>
+                <img src="/assets/images/lapop-1.svg" alt="Anuncios" width="300" height="300" loading="lazy" className={styles.cardImg} />
+                <div className={styles.cardBorder}></div>
+                <div className={styles.cardGranular}></div>
+              </div>
+              <Link to="/servicios" className={styles.cardTag}>Tengo este problema</Link>
             </div>
             
-            <div className={styles.card} data-reveal="fade-up" data-delay="300">
-              <h3>No tienen <br/>página web</h3>
-              <img src="/assets/images/laptop-2.webp" alt="No tienen web" loading="lazy" />
-              <button className={styles.cardTag}>Tengo este problema</button>
+            <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="300">
+              <div className={styles.card}>
+                <div className={styles.cardBg}></div>
+                <h3 className={styles.cardText}>No tienen <br/>página <br/>web</h3>
+                <img src="/assets/images/laptop-2.webp" alt="No tienen web" width="300" height="300" loading="lazy" className={styles.cardImg} />
+                <div className={styles.cardBorder}></div>
+                <div className={styles.cardGranular}></div>
+              </div>
+              <Link to="/servicios" className={styles.cardTag}>Tengo este problema</Link>
             </div>
           </div>
         </div>
@@ -131,11 +154,11 @@ const Home = () => {
                 <h3>Especialistas <br/>en marketing <br/>odontológico</h3>
                 <p>Ayudamos a consultorios y odontólogos a atraer más pacientes con estrategias, web profesionales y sistemas de atención automatizada que convierten consultas en citas.</p>
                 <div className={styles.cardActionGroup}>
-                  <button className={styles.primaryBtnSm}>Agendar una asesoría gratuita</button>
-                  <button className={styles.cardBtn}>Quiero saber mas</button>
+                  <Link to="/contacto" className={styles.primaryBtnSm}>Agendar una asesoría gratuita</Link>
+                  <Link to="/servicios" className={styles.cardBtn}>Quiero saber mas</Link>
                 </div>
               </div>
-              <img src="/assets/images/muela.webp" alt="Odontología" className={styles.serviceImgMuela} loading="lazy" />
+              <img src="/assets/images/muela.webp" alt="Odontología" width="400" height="400" className={styles.serviceImgMuela} loading="lazy" />
             </div>
 
             <div className={styles.serviceCardSm} data-reveal="fade-up" data-delay="300">
@@ -144,8 +167,8 @@ const Home = () => {
                 <p>Nos encargamos de todo lo técnico para que tu página esté siempre online.</p>
               </div>
               <div className={styles.cardActionGroupCol}>
-                <button className={styles.primaryBtnSm}>Contactanos</button>
-                <button className={styles.cardBtn}>Ver proyectos</button>
+                <Link to="/contacto" className={styles.primaryBtnSm}>Contactanos</Link>
+                <Link to="/odontologia" className={styles.cardBtn}>Ver proyectos</Link>
               </div>
             </div>
           </div>
@@ -165,9 +188,9 @@ const Home = () => {
               <p className={styles.cardDesc}>Creamos sistemas digitales que funcionan 24/7 para atraer clientes, y ayudarte a vender más sin complicaciones.</p>
             </div>
             
-            <div className={`${styles.testimonialCard} ${styles.testimonialCardActive}`} data-reveal="fade-up" data-delay="100">
+            <div className={styles.testimonialCard} data-reveal="fade-up" data-delay="100">
               <h4>Christopher<br/>Mendoza</h4>
-              <p className={styles.cardBrandActive}>Relativobar.</p>
+              <p className={styles.cardBrand}>Relativobar.</p>
               <p className={styles.cardDesc}>Creamos sistemas digitales que funcionan 24/7 para atraer clientes, y ayudarte a vender más sin complicaciones.</p>
             </div>
             
@@ -193,12 +216,40 @@ const Home = () => {
           <h2 className={styles.sectionTitle} data-reveal="fade-up">
             Negocios que ya están creciendo<br/>con estrategias digitales.
           </h2>
-          <div className={styles.logosGrid} data-reveal="fade" data-delay="200">
-            <div className={styles.logoItem}><strong>VALOTES</strong></div>
-            <div className={styles.logoItem}><strong>PLAZA CHICKEN</strong></div>
-            <div className={styles.logoItem}><i>Relativo</i></div>
-            <div className={styles.logoItem}>REYNA</div>
-            <div className={styles.logoItem}>ROYAL CLUB</div>
+          {/* CAROUSEL IMPLEMENTATION */}
+          <div className={styles.carouselContainer} data-reveal="fade" data-delay="200">
+            <div className={styles.carouselTrack}>
+              {/* ORIGINAL SET */}
+              <div className={styles.logoItem}><img src="/assets/images/logo/firma-romandent.webp" alt="Romandent Clínica Dental - Caso de Éxito Agencia" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/super-pollos-logo.webp" alt="Super Pollos Restaurante - Caso de Éxito Marketing" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/relativo-logo.webp" alt="Relativo Bar - Cliente de Estrategia Digital" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/logo-blanco.webp" alt="Alianza Comercial Estratégica" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/royal-club-tinajas-logo.webp" alt="Royal Club Tinajas - Cliente de la Agencia" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/reyna-logo.webp" alt="Reyna Empresa Aliada - Resultados de Publicidad" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/romandent-contraste-logo.webp" alt="Romandent Contraste - Estrategia Odontológica" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/viva-lotes-logo.webp" alt="Viva Lotes Bienes Raíces - Éxito en Ventas" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/empresa-aliada.webp" alt="Logotipo Empresa Aliada - Partner de Crecimiento" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/socio-estrategico.webp" alt="Socio Estratégico - Resultados Online" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/parihuana-logo.webp" alt="Parihuana Tourism - Crecimiento Sostenido" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/gymboa-logo.webp" alt="Gymboa Fitness Club - Caso Marketing Gyms" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/cliente-agencia.webp" alt="Caso Empresarial Agencia - Adquisición de Leads" loading="lazy" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/hacienda-logo.webp" alt="La Hacienda Restaurante Eventos - Marketing" loading="lazy" /></div>
+              {/* DUPLICATE SET FOR INFINITE SCROLL */}
+              <div className={styles.logoItem}><img src="/assets/images/logo/firma-romandent.webp" alt="Romandent Clínica Dental - Caso de Éxito Agencia" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/super-pollos-logo.webp" alt="Super Pollos Restaurante - Caso de Éxito Marketing" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/relativo-logo.webp" alt="Relativo Bar - Cliente de Estrategia Digital" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/logo-blanco.webp" alt="Alianza Comercial Estratégica" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/royal-club-tinajas-logo.webp" alt="Royal Club Tinajas - Cliente de la Agencia" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/reyna-logo.webp" alt="Reyna Empresa Aliada - Resultados de Publicidad" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/romandent-contraste-logo.webp" alt="Romandent Contraste - Estrategia Odontológica" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/viva-lotes-logo.webp" alt="Viva Lotes Bienes Raíces - Éxito en Ventas" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/empresa-aliada.webp" alt="Logotipo Empresa Aliada - Partner de Crecimiento" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/socio-estrategico.webp" alt="Socio Estratégico - Resultados Online" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/parihuana-logo.webp" alt="Parihuana Tourism - Crecimiento Sostenido" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/gymboa-logo.webp" alt="Gymboa Fitness Club - Caso Marketing Gyms" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/cliente-agencia.webp" alt="Caso Empresarial Agencia - Adquisición de Leads" loading="lazy" aria-hidden="true" /></div>
+              <div className={styles.logoItem}><img src="/assets/images/logo/hacienda-logo.webp" alt="La Hacienda Restaurante Eventos - Marketing" loading="lazy" aria-hidden="true" /></div>
+            </div>
           </div>
         </div>
       </section>
@@ -206,11 +257,9 @@ const Home = () => {
       {/* PROCESO SECTION RING */}
       <section className={styles.processSection}>
         <div className="container text-center">
-          <p className={styles.processSubtitle} data-reveal="fade-up">Bienvenido</p>
-          <h2 className={styles.processTitle} data-reveal="fade-up">Así trabajamos contigo.</h2>
-
           <div className={styles.ringWrapper} data-reveal="fade-scale" data-delay="200">
-             <img src="/assets/images/remolino.webp" alt="" className={styles.remolinoRing} loading="lazy" />
+             
+             <img src="/assets/images/remolino.svg" width="600" height="600" className={styles.centerSVGImage} alt="Ciclo de trabajo" loading="lazy" />
              
              <div className={`${styles.stepBox} ${styles.stepBox1}`}>
                <span className={styles.stepNum}>1</span>
@@ -243,10 +292,8 @@ const Home = () => {
                  <p>Desarrollamos tu página web y<br/>herramientas digitales.</p>
                </div>
              </div>
-          </div>
-          
-          <div className={styles.processCTA}>
-             <button className={styles.primaryBtn}>Quiero una asesoría gratuita</button>
+
+             <Link to="/contacto" className={styles.processFloatingBtn}>Quiero una asesoría gratuita</Link>
           </div>
         </div>
       </section>
@@ -284,7 +331,7 @@ const Home = () => {
            <h2 className={styles.sectionTitle} data-reveal="fade-up">¿Listo para llevar tu<br/>negocio al siguiente nivel?</h2>
            <p className={styles.ctaSubtitleText} data-reveal="fade-up" data-delay="100">Agenda una asesoría gratuita y descubre cómo podemos<br/>ayudarte a atraer más clientes con estrategias digitales.</p>
            
-           <button className={styles.primaryBtn} style={{ margin: '40px 0 80px' }}>Agendar una asesoría gratuita</button>
+           <Link to="/contacto" className={styles.primaryBtn} style={{ margin: '40px 0 80px', display: 'inline-block' }}>Agendar una asesoría gratuita</Link>
            
            <div className={styles.discountCard} data-reveal="fade-up" data-delay="200">
               <div className={styles.discountText}>
@@ -295,9 +342,9 @@ const Home = () => {
                    descuento</strong><br/>
                    en tus servicios
                  </h2>
-                 <button className={styles.primaryBtnSm} style={{ marginTop: '30px' }}>Contactanos</button>
+                 <Link to="/contacto" className={styles.primaryBtnSm} style={{ marginTop: '30px', display: 'inline-block' }}>Contactanos</Link>
               </div>
-              <img src="/assets/images/manos.webp" alt="Manos" className={styles.discountImg} loading="lazy" />
+              <img src="/assets/images/manos.webp" alt="Manos" width="300" height="300" className={styles.discountImg} loading="lazy" />
            </div>
         </div>
       </section>
@@ -310,7 +357,7 @@ const Home = () => {
                   <img src="/assets/images/logo-simple.webp" alt="Simple Marketing" className={styles.footerLogo} />
                   <p>INICIO<br/>SERVICIOS</p>
                </div>
-               <button className={styles.primaryBtnSm}>Contactarnos</button>
+               <Link to="/contacto" className={styles.primaryBtnSm}>Contactarnos</Link>
             </div>
          </div>
       </footer>

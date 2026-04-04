@@ -80,7 +80,7 @@ const Services = () => {
             </div>
 
             {/* Plan Standar (Highlight) */}
-            <div className={`${styles.pricingCard} ${styles.pricingCardActive}`} data-reveal="fade-up" data-delay="150">
+            <div className={styles.pricingCard} data-reveal="fade-up" data-delay="150">
               <p className={styles.planTarget}>Ventas y alcance</p>
               <h3 className={styles.planName}>Standar</h3>
               <div className={styles.price}>
@@ -97,7 +97,7 @@ const Services = () => {
                 <img src="/assets/images/estadistica.svg" alt="Icono" className={styles.resultIcon} />
                 <p>Resultado:<br/>visibilidad + base de marca</p>
               </div>
-              <button className={styles.choosePlanBtnActive}>Elegir plan</button>
+              <button className={styles.choosePlanBtn}>Elegir plan</button>
             </div>
 
             {/* Plan Pro */}

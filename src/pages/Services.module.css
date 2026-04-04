@@ -141,7 +141,7 @@
   flex-direction: column;
 }
 
-.pricingCardActive {
+.pricingCard:hover {
   background: rgba(20, 0, 40, 0.8);
   border: 1px solid var(--primary);
   box-shadow: 0 0 50px rgba(201, 0, 255, 0.2);
@@ -150,7 +150,7 @@
   overflow: hidden;
 }
 
-.pricingCardActive::before {
+.pricingCard:hover::before {
   content: '';
   position: absolute;
   top: -50px;
@@ -246,7 +246,7 @@
   z-index: 2;
 }
 
-.choosePlanBtnActive {
+.pricingCard:hover .choosePlanBtn {
   background: white;
   color: var(--primary);
   border: none;
