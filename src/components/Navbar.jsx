@@ -6,7 +6,11 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={`container ${styles.navContainer}`}>
         <Link to="/" className={styles.logo}>
-          <img src="/assets/images/logo-simple.svg" alt="Simple Marketing" />
+          <img 
+            src="/assets/images/logo-simple.webp" 
+            alt="Simple Marketing" 
+            fetchpriority="high" 
+          />
         </Link>
         
         <ul className={styles.navLinks}>

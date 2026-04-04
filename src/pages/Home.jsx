@@ -9,7 +9,12 @@ const Home = () => {
       {/* HERO SECTION */}
       <section className={styles.hero}>
         <div className={`${styles.heroContent} hero-enter`}>
-          <img src="/assets/images/remolino.svg" alt="" className={styles.remolinoHero} />
+          <img 
+            src="/assets/images/remolino.webp" 
+            alt="" 
+            className={styles.remolinoHero} 
+            fetchpriority="high"
+          />
           <p className={styles.subtitle}>simple marketing</p>
           <h1 className={styles.title}>
             Soluciones digitales de <br/>para <span className="text-primary glow-text">hacer crecer tu</span> <br/>negocio
@@ -34,25 +39,25 @@ const Home = () => {
           <div className={styles.cardsGrid}>
             <div className={styles.card} data-reveal="fade-up" data-delay="0">
               <h3>No llegan <br/>clientes</h3>
-              <img src="/assets/images/persona.svg" alt="No llegan clientes" />
+              <img src="/assets/images/persona.webp" alt="No llegan clientes" loading="lazy" />
               <button className={styles.cardTag}>Tengo este problema</button>
             </div>
             
             <div className={`${styles.card} ${styles.cardActive}`} data-reveal="fade-up" data-delay="100">
               <h3>Redes <br/>sociales <br/>que no <br/>venden</h3>
-              <img src="/assets/images/manos.svg" alt="Redes sociales que no venden" />
+              <img src="/assets/images/manos.webp" alt="Redes sociales que no venden" loading="lazy" />
               <button className={styles.btnActive}>Quiero saber mas</button>
             </div>
             
             <div className={styles.card} data-reveal="fade-up" data-delay="200">
               <h3>Anuncios <br/>que no <br/>funcionan</h3>
-              <img src="/assets/images/lapop-1.svg" alt="Anuncios que no funcionan" />
+              <img src="/assets/images/lapop-1.svg" alt="Anuncios que no funcionan" loading="lazy" />
               <button className={styles.cardTag}>Tengo este problema</button>
             </div>
             
             <div className={styles.card} data-reveal="fade-up" data-delay="300">
               <h3>No tienen <br/>página web</h3>
-              <img src="/assets/images/laptop-2.svg" alt="No tienen web" />
+              <img src="/assets/images/laptop-2.webp" alt="No tienen web" loading="lazy" />
               <button className={styles.cardTag}>Tengo este problema</button>
             </div>
           </div>
@@ -118,7 +123,7 @@ const Home = () => {
                 <p>Creamos, automatizamos y diseñamos estrategias digitales para que tu negocio atraiga clientes de forma constante, sin depender solo de redes sociales.</p>
                 <button className={styles.cardBtn}>Ver servicios</button>
               </div>
-              <img src="/assets/images/esfera-morada.svg" alt="Todos los servicios" className={styles.serviceImg} />
+              <img src="/assets/images/esfera-morada.webp" alt="Todos los servicios" className={styles.serviceImg} loading="lazy" />
             </div>
 
             <div className={styles.serviceCardLg} data-reveal="fade-up" data-delay="150">
@@ -130,7 +135,7 @@ const Home = () => {
                   <button className={styles.cardBtn}>Quiero saber mas</button>
                 </div>
               </div>
-              <img src="/assets/images/muela.svg" alt="Odontología" className={styles.serviceImgMuela} />
+              <img src="/assets/images/muela.webp" alt="Odontología" className={styles.serviceImgMuela} loading="lazy" />
             </div>
 
             <div className={styles.serviceCardSm} data-reveal="fade-up" data-delay="300">
@@ -205,7 +210,7 @@ const Home = () => {
           <h2 className={styles.processTitle} data-reveal="fade-up">Así trabajamos contigo.</h2>
 
           <div className={styles.ringWrapper} data-reveal="fade-scale" data-delay="200">
-             <img src="/assets/images/remolino.svg" alt="" className={styles.remolinoRing} />
+             <img src="/assets/images/remolino.webp" alt="" className={styles.remolinoRing} loading="lazy" />
              
              <div className={`${styles.stepBox} ${styles.stepBox1}`}>
                <span className={styles.stepNum}>1</span>
@@ -292,7 +297,7 @@ const Home = () => {
                  </h2>
                  <button className={styles.primaryBtnSm} style={{ marginTop: '30px' }}>Contactanos</button>
               </div>
-              <img src="/assets/images/manos.svg" alt="Manos" className={styles.discountImg} />
+              <img src="/assets/images/manos.webp" alt="Manos" className={styles.discountImg} loading="lazy" />
            </div>
         </div>
       </section>
@@ -302,7 +307,7 @@ const Home = () => {
          <div className="container">
             <div className={styles.footerFlex}>
                <div className={styles.footerBrand}>
-                  <img src="/assets/images/logo-simple.svg" alt="Simple Marketing" className={styles.footerLogo} />
+                  <img src="/assets/images/logo-simple.webp" alt="Simple Marketing" className={styles.footerLogo} />
                   <p>INICIO<br/>SERVICIOS</p>
                </div>
                <button className={styles.primaryBtnSm}>Contactarnos</button>
