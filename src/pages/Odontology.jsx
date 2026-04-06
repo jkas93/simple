@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Odontology.module.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -21,7 +22,7 @@ const Odontology = () => {
               automáticamente para tu clínica, sin depender de recomendaciones.
             </p>
             <div className={styles.ctaGroup}>
-              <button className={styles.primaryBtn}>Agendar una asesoría gratuita</button>
+              <Link to="/contacto" className={styles.primaryBtn}>Agendar una asesoría gratuita</Link>
               <button className={styles.secondaryBtn}>¿Como funciona?</button>
             </div>
           </div>
@@ -49,7 +50,7 @@ const Odontology = () => {
       </section>
 
       {/* LOSING MONEY */}
-      <section className={styles.problemsSection}>
+      <section className={styles.problemsSection} id="si-esto-te-pasa">
         <div className="container text-center">
           <h2 className={styles.sectionTitle} data-reveal="fade-up">
             Si esto te pasa, estás perdiendo<br/>dinero todos los días
@@ -57,19 +58,19 @@ const Odontology = () => {
           <div className={styles.problemsList}>
              <div className={styles.problemItem} data-reveal="fade-up" data-delay="0">
                 <h3>Tu agenda tiene<br/>espacios vacios</h3>
-                <button className={styles.itemBtn}>Contactanos</button>
+                <a href="https://wa.me/51936118428?text=Hola,%20vengo%20de%20tu%20web%20y%20mi%20agenda%20tiene%20muchos%20espacios%20vacios,%20quiero%20llenarla%20con%20mas%20clientes,%20me%20puedes%20ayudar" target="_blank" rel="noopener noreferrer" className={styles.itemBtn}>Contactanos</a>
              </div>
              <div className={styles.problemItem} data-reveal="fade-up" data-delay="100">
                 <h3>Dependes del<br/>boca a boca</h3>
-                <button className={styles.itemBtn}>Contactanos</button>
+                <a href="https://wa.me/51936118428?text=Hola,%20vengo%20de%20tu%20web%20y%20actualmente%20dependo%20del%20boca%20a%20boca%20para%20conseguir%20clientes,%20quiero%20un%20sistema%20mas%20constante" target="_blank" rel="noopener noreferrer" className={styles.itemBtn}>Contactanos</a>
              </div>
              <div className={styles.problemItem} data-reveal="fade-up" data-delay="200">
                 <h3>Respondes tarde<br/>los mensajes</h3>
-                <button className={styles.itemBtn}>Contactanos</button>
+                <a href="https://wa.me/51936118428?text=Hola,%20vengo%20de%20tu%20web%20y%20siento%20que%20estoy%20perdiendo%20clientes%20por%20responder%20tarde%20los%20mensajes,%20quiero%20mejorar%20eso" target="_blank" rel="noopener noreferrer" className={styles.itemBtn}>Contactanos</a>
              </div>
              <div className={styles.problemItem} data-reveal="fade-up" data-delay="300">
                 <h3>Publicas en redes<br/>pero no generas</h3>
-                <button className={styles.itemBtn}>Contactanos</button>
+                <a href="https://wa.me/51936118428?text=Hola,%20vengo%20de%20tu%20web%20y%20estoy%20publicando%20en%20redes%20pero%20no%20estoy%20generando%20ventas,%20quiero%20saber%20que%20estoy%20haciendo%20mal" target="_blank" rel="noopener noreferrer" className={styles.itemBtn}>Contactanos</a>
              </div>
           </div>
         </div>

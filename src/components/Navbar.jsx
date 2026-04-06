@@ -29,7 +29,7 @@ const Navbar = () => {
           </div>
 
           <div className={styles.rightActions}>
-            <Link to="/contacto" className={styles.contactBtn}>Contactarnos</Link>
+            <a href="https://wa.me/51936118428" target="_blank" rel="noopener noreferrer" className={styles.contactBtn}>Contactarnos</a>
           </div>
         </div>
       </nav>

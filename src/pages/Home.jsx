@@ -28,7 +28,7 @@ const Home = () => {
           
           <div className={styles.ctaGroup}>
             <Link to="/contacto" className={styles.primaryBtn}>Agendar una asesoría gratuita</Link>
-            <Link to="/servicios" className={styles.secondaryBtn}>¿Como funciona?</Link>
+            <a href="#proceso" className={styles.secondaryBtn}>¿Como funciona?</a>
           </div>
         </div>
       </section>
@@ -48,7 +48,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <Link to="/servicios" className={styles.cardTag}>Tengo este problema</Link>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20tu%20web%20y%20tengo%20el%20problema%20que%20no%20me%20llegan%20clientes" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Tengo este problema</a>
             </div>
             
             <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="100">
@@ -59,7 +59,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <Link to="/servicios" className={styles.cardTag}>Quiero saber mas</Link>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20la%20web%20mis%20redes%20sociales%20no%20venden,%20quiero%20la%20solucion" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Quiero saber mas</a>
             </div>
             
             <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="200">
@@ -70,7 +70,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <Link to="/servicios" className={styles.cardTag}>Tengo este problema</Link>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20la%20web%20he%20echo%20publicidad%20pero%20no%20tengo%20resultados,%20quiero%20ayuda" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Tengo este problema</a>
             </div>
             
             <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="300">
@@ -81,7 +81,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <Link to="/servicios" className={styles.cardTag}>Tengo este problema</Link>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20tu%20web%20y%20deseo%20crear%20una%20web%20que%20funcione%20y%20venda" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Tengo este problema</a>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ const Home = () => {
               <div className={styles.serviceText}>
                 <h3>Todos los <br/>servicios</h3>
                 <p>Creamos, automatizamos y diseñamos estrategias digitales para que tu negocio atraiga clientes de forma constante, sin depender solo de redes sociales.</p>
-                <button className={styles.cardBtn}>Ver servicios</button>
+                <Link to="/odontologia" className={styles.cardBtn}>Ver servicios</Link>
               </div>
               <img src="/assets/images/esfera-morada.webp" alt="Todos los servicios" className={styles.serviceImg} loading="lazy" />
             </div>
@@ -155,7 +155,7 @@ const Home = () => {
                 <p>Ayudamos a consultorios y odontólogos a atraer más pacientes con estrategias, web profesionales y sistemas de atención automatizada que convierten consultas en citas.</p>
                 <div className={styles.cardActionGroup}>
                   <Link to="/contacto" className={styles.primaryBtnSm}>Agendar una asesoría gratuita</Link>
-                  <Link to="/servicios" className={styles.cardBtn}>Quiero saber mas</Link>
+                  <Link to="/odontologia#si-esto-te-pasa" className={styles.cardBtn}>Quiero saber mas</Link>
                 </div>
               </div>
               <img src="/assets/images/muela.webp" alt="Odontología" width="400" height="400" className={styles.serviceImgMuela} loading="lazy" />
@@ -167,7 +167,7 @@ const Home = () => {
                 <p>Nos encargamos de todo lo técnico para que tu página esté siempre online.</p>
               </div>
               <div className={styles.cardActionGroupCol}>
-                <Link to="/contacto" className={styles.primaryBtnSm}>Contactanos</Link>
+                <a href="https://wa.me/51936118428" target="_blank" rel="noopener noreferrer" className={styles.primaryBtnSm}>Contactanos</a>
                 <Link to="/odontologia" className={styles.cardBtn}>Ver proyectos</Link>
               </div>
             </div>
@@ -255,8 +255,10 @@ const Home = () => {
       </section>
 
       {/* PROCESO SECTION RING */}
-      <section className={styles.processSection}>
+      <section className={styles.processSection} id="proceso">
         <div className="container text-center">
+          <p className={styles.sectionSubtitle} data-reveal="fade-up">Bienvenido</p>
+          <h2 className={styles.sectionTitle} data-reveal="fade-up">Así trabajamos contigo.</h2>
           <div className={styles.ringWrapper} data-reveal="fade-scale" data-delay="200">
              
              <img src="/assets/images/remolino.svg" width="600" height="600" className={styles.centerSVGImage} alt="Ciclo de trabajo" loading="lazy" />
@@ -342,7 +344,7 @@ const Home = () => {
                    descuento</strong><br/>
                    en tus servicios
                  </h2>
-                 <Link to="/contacto" className={styles.primaryBtnSm} style={{ marginTop: '30px', display: 'inline-block' }}>Contactanos</Link>
+                 <a href="https://wa.me/51936118428" target="_blank" rel="noopener noreferrer" className={styles.primaryBtnSm} style={{ marginTop: '30px', display: 'inline-block' }}>Contactanos</a>
               </div>
               <img src="/assets/images/manos.webp" alt="Manos" width="300" height="300" className={styles.discountImg} loading="lazy" />
            </div>
@@ -357,7 +359,7 @@ const Home = () => {
                   <img src="/assets/images/logo-simple.webp" alt="Simple Marketing" className={styles.footerLogo} />
                   <p>INICIO<br/>SERVICIOS</p>
                </div>
-               <Link to="/contacto" className={styles.primaryBtnSm}>Contactarnos</Link>
+               <a href="https://wa.me/51936118428" target="_blank" rel="noopener noreferrer" className={styles.primaryBtnSm}>Contactarnos</a>
             </div>
          </div>
       </footer>
