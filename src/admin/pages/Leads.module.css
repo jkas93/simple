@@ -1,0 +1,102 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tableCard {
+  background: rgba(15, 5, 25, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #8c8c8c;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.scoreBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.select, .statusSelect {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.statusSelect {
+  padding: 6px 10px;
+  font-weight: 600;
+  background: rgba(0,0,0,0.3);
+}
+
+.statusSelect option {
+  background: #111;
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.waBtn {
+  background: #25D366;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.deleteBtn {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #8c8c8c;
+  background: rgba(15, 5, 25, 0.5);
+  border-radius: 12px;
+  border: 1px dashed rgba(255,255,255,0.2);
+}
