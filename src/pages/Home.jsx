@@ -1,9 +1,40 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Home = () => {
   const revealRef = useScrollReveal();
+  const [activeTextIndex, setActiveTextIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  const baseTextOptions = [
+    <>Hosting web <br/>+ dominio</>,
+    <>Crear páginas <br/>web</>,
+    <>Diseño de <br/>branding</>
+  ];
+  
+  // Clone the first item at the end to create a seamless infinite loop
+  const textOptions = [...baseTextOptions, baseTextOptions[0]];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setActiveTextIndex(prev => prev + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (activeTextIndex === textOptions.length - 1) {
+      // Once it reaches the cloned item, wait for the animation to finish
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false); // Disable transition for the instant jump
+        setActiveTextIndex(0);     // Instantly jump back to the real first item
+      }, 600); // 600ms matches the CSS transition duration
+      return () => clearTimeout(timeout);
+    }
+  }, [activeTextIndex, textOptions.length]);
 
   return (
     <div className={styles.homeContainer} ref={revealRef}>
@@ -48,7 +79,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <a href="https://wa.me/51936118428?text=Vengo%20de%20tu%20web%20y%20tengo%20el%20problema%20que%20no%20me%20llegan%20clientes" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Tengo este problema</a>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20tu%20web%20y%20tengo%20el%20problema%20que%20no%20me%20llegan%20clientes" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Quiero saber más</a>
             </div>
             
             <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="100">
@@ -59,7 +90,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <a href="https://wa.me/51936118428?text=Vengo%20de%20la%20web%20mis%20redes%20sociales%20no%20venden,%20quiero%20la%20solucion" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Quiero saber mas</a>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20la%20web%20mis%20redes%20sociales%20no%20venden,%20quiero%20la%20solucion" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Quiero saber más</a>
             </div>
             
             <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="200">
@@ -70,7 +101,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <a href="https://wa.me/51936118428?text=Vengo%20de%20la%20web%20he%20echo%20publicidad%20pero%20no%20tengo%20resultados,%20quiero%20ayuda" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Tengo este problema</a>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20la%20web%20he%20echo%20publicidad%20pero%20no%20tengo%20resultados,%20quiero%20ayuda" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Quiero saber más</a>
             </div>
             
             <div className={styles.cardWrapper} data-reveal="fade-up" data-delay="300">
@@ -81,7 +112,7 @@ const Home = () => {
                 <div className={styles.cardBorder}></div>
                 <div className={styles.cardGranular}></div>
               </div>
-              <a href="https://wa.me/51936118428?text=Vengo%20de%20tu%20web%20y%20deseo%20crear%20una%20web%20que%20funcione%20y%20venda" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Tengo este problema</a>
+              <a href="https://wa.me/51936118428?text=Vengo%20de%20tu%20web%20y%20deseo%20crear%20una%20web%20que%20funcione%20y%20venda" target="_blank" rel="noopener noreferrer" className={styles.cardTag}>Quiero saber más</a>
             </div>
           </div>
         </div>
@@ -144,7 +175,7 @@ const Home = () => {
               <div className={styles.serviceText}>
                 <h3>Todos los <br/>servicios</h3>
                 <p>Creamos, automatizamos y diseñamos estrategias digitales para que tu negocio atraiga clientes de forma constante, sin depender solo de redes sociales.</p>
-                <Link to="/odontologia" className={styles.cardBtn}>Ver servicios</Link>
+                <Link to="/servicios" className={styles.cardBtn}>Ver servicios</Link>
               </div>
               <img src="/assets/images/esfera-morada.webp" alt="Todos los servicios" className={styles.serviceImg} loading="lazy" />
             </div>
@@ -155,7 +186,7 @@ const Home = () => {
                 <p>Ayudamos a consultorios y odontólogos a atraer más pacientes con estrategias, web profesionales y sistemas de atención automatizada que convierten consultas en citas.</p>
                 <div className={styles.cardActionGroup}>
                   <Link to="/contacto" className={styles.primaryBtnSm}>Agendar una asesoría gratuita</Link>
-                  <Link to="/odontologia#si-esto-te-pasa" className={styles.cardBtn}>Quiero saber mas</Link>
+                  <Link to="/odontologia" className={styles.cardBtn}>Quiero saber más</Link>
                 </div>
               </div>
               <img src="/assets/images/muela.webp" alt="Odontología" width="400" height="400" className={styles.serviceImgMuela} loading="lazy" />
@@ -163,7 +194,19 @@ const Home = () => {
 
             <div className={styles.serviceCardSm} data-reveal="fade-up" data-delay="300">
               <div className={styles.serviceText}>
-                <h3>Hosting web <br/>+ dominio</h3>
+                <div className={styles.swipeContainer}>
+                  <div 
+                    className={styles.swipeTrack}
+                    style={{ 
+                      transform: `translateY(calc(-${activeTextIndex} * 100% / ${textOptions.length}))`,
+                      transition: isTransitioning ? 'transform 0.6s cubic-bezier(0.85, 0, 0.15, 1)' : 'none'
+                    }}
+                  >
+                    {textOptions.map((text, i) => (
+                      <h3 key={i} className={styles.swipeItem}>{text}</h3>
+                    ))}
+                  </div>
+                </div>
                 <p>Nos encargamos de todo lo técnico para que tu página esté siempre online.</p>
               </div>
               <div className={styles.cardActionGroupCol}>
@@ -354,12 +397,26 @@ const Home = () => {
       {/* FOOTER */}
       <footer className={styles.footer}>
          <div className="container">
-            <div className={styles.footerFlex}>
-               <div className={styles.footerBrand}>
+            <div className={styles.footerTop}>
+               <div className={styles.footerBrandCol}>
                   <img src="/assets/images/logo-simple.webp" alt="Simple Marketing" className={styles.footerLogo} />
-                  <p>INICIO<br/>SERVICIOS</p>
+                  <p className={styles.footerDesc}>Ayudamos a profesionales y empresas a atraer clientes constantes con embudos automatizados y webs de alta conversión.</p>
                </div>
-               <a href="https://wa.me/51936118428" target="_blank" rel="noopener noreferrer" className={styles.primaryBtnSm}>Contactarnos</a>
+               <div className={styles.footerLinksCol}>
+                  <h4>Navegación</h4>
+                  <Link to="/">Inicio</Link>
+                  <Link to="/servicios">Servicios</Link>
+                  <Link to="/odontologia">Odontología</Link>
+                  <Link to="/contacto">Contacto</Link>
+               </div>
+               <div className={styles.footerContactCol}>
+                  <h4>¿Hablamos?</h4>
+                  <p>Agenda una reunión estratégica gratuita con nuestro equipo.</p>
+                  <Link to="/contacto" className={styles.footerBtn}>Agendar asesoría</Link>
+               </div>
+            </div>
+            <div className={styles.footerBottom}>
+               <p>&copy; {new Date().getFullYear()} Simple Marketing. Todos los derechos reservados.</p>
             </div>
          </div>
       </footer>

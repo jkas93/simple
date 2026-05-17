@@ -1,0 +1,177 @@
+.adminContainer {
+  padding-top: 120px;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* LOGIN */
+.loginCard {
+  max-width: 400px;
+  margin: 50px auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.loginCard h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.loginCard p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--primary);
+}
+
+.errorText {
+  color: #ff4a4a;
+  font-size: 13px;
+  margin-top: -5px;
+}
+
+.primaryBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background: var(--primary-hover);
+}
+
+/* DASHBOARD */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+}
+
+.refreshBtn {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.refreshBtn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.emptyState {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.2);
+  padding: 50px;
+  text-align: center;
+  border-radius: 12px;
+  color: var(--text-muted);
+}
+
+/* TABLE */
+.tableWrapper {
+  overflow-x: auto;
+  background: rgba(10, 5, 15, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.table th {
+  text-align: left;
+  padding: 15px 20px;
+  background: rgba(255,255,255,0.05);
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  vertical-align: top;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.dateCell {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.link {
+  color: #fff;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.linkWhatsApp {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.linkWhatsApp:hover {
+  text-decoration: underline;
+}

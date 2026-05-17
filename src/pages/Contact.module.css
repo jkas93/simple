@@ -37,9 +37,7 @@
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.05em;
-  color: rgba(255,255,255,0.05);
-  pointer-events: none;
-  user-select: none;
+  color: white;
 }
 
 .formCard {
@@ -99,6 +97,12 @@ select.input {
   cursor: pointer;
 }
 
+select.input option {
+  background-color: #0a050f;
+  color: white;
+  padding: 10px;
+}
+
 .subText {
   font-size: 16px;
   font-weight: 600;
@@ -124,6 +128,36 @@ select.input {
   color: rgba(255,255,255,0.8);
   margin: 30px 0;
   line-height: 1.5;
+}
+
+.errorText {
+  color: #ff4a4a;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.successMessage {
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  border-radius: 16px;
+}
+
+.successMessage h3 {
+  color: #2ecc71;
+  font-size: 24px;
+}
+
+.successMessage p {
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .submitBtn {

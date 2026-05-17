@@ -1,5 +1,6 @@
 .homeContainer {
   padding-top: 100px;
+  overflow-x: hidden;
 }
 
 /* HERO */
@@ -110,7 +111,7 @@
 
 .sectionSubtitle {
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
@@ -265,7 +266,7 @@
   border: 1.5px solid var(--primary, #d800ff);
   padding: 14px 28px;
   border-radius: 30px;
-  font-size: 15px;
+  font-size: 0; /* Oculta el texto original del HTML */
   font-weight: 700;
   width: auto;
   white-space: nowrap;
@@ -276,11 +277,21 @@
   cursor: pointer;
 }
 
+.cardTag::before {
+  content: "Quiero saber más";
+  font-size: 15px; /* Restaura el tamaño de la fuente para el texto generado */
+  transition: all 0.3s ease;
+}
+
 .cardWrapper:hover .cardTag, .cardActive .cardTag {
   background: #020005;
   color: white;
   border: 1.5px solid #d800ff;
   box-shadow: 0 0 20px rgba(201, 0, 255, 0.4);
+}
+
+.cardWrapper:hover .cardTag::before, .cardActive .cardTag::before, .cardTag:hover::before {
+  content: "Tengo este problema";
 }
 
 .cardTag:hover {
@@ -454,10 +465,31 @@
   font-size: clamp(32px, 3.5vw, 44px);
   line-height: 0.95;
   font-weight: 800;
-  margin-bottom: 25px;
   color: white;
   letter-spacing: -0.04em;
   text-align: center;
+  /* margin-bottom movido al container */
+}
+
+.swipeContainer {
+  height: 95px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.swipeTrack {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.swipeItem {
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .serviceText p {
@@ -530,6 +562,8 @@
   height: 150%;
   opacity: 0.9;
   z-index: 1;
+  width: auto;
+  object-fit: contain;
 }
 
 .serviceImgMuela {
@@ -537,8 +571,12 @@
   right: -20px;
   top: -30px;
   height: 120%;
+  width: auto;
+  object-fit: contain;
   z-index: 1;
 }
+
+
 
 /* TESTIMONIOS SECTION */
 .testimonialsSection {
@@ -931,44 +969,108 @@
   font-weight: 800;
 }
 
-.discountImg {
+.discountImg { width: auto; object-fit: contain;
   position: absolute;
   right: -50px;
   bottom: -50px;
   height: 180%;
+  width: auto;
+  object-fit: contain;
   z-index: 1;
   pointer-events: none;
 }
 
 /* FOOTER */
 .footer {
-  padding: 50px 0 30px;
-  border-top: 1px solid var(--border-color);
-  margin-top: 50px;
+  padding: 80px 0 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(201, 0, 255, 0.03));
 }
 
-.footerFlex {
+.footerTop {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 50px;
 }
 
-.footerBrand {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.footerBrandCol {
+  flex: 2;
+  max-width: 350px;
 }
 
 .footerLogo {
-  height: 30px;
+  height: 35px;
   width: auto;
+  margin-bottom: 20px;
 }
 
-.footerBrand p {
-  color: var(--text-muted);
-  font-size: 12px;
-  line-height: 1.8;
-  letter-spacing: 1px;
+.footerDesc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footerLinksCol, .footerContactCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLinksCol h4, .footerContactCol h4 {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.footerLinksCol a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footerLinksCol a:hover {
+  color: var(--primary);
+}
+
+.footerContactCol p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footerBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin-top: 5px;
+}
+
+.footerBtn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
@@ -991,7 +1093,9 @@
   
   .discountCard { flex-direction: column; padding: 30px; text-align: center; }
   .discountText h2 { font-size: 28px; }
-  .discountImg { position: relative; right: auto; bottom: auto; height: 150px; margin-top: 20px; }
+  .discountImg { width: auto; object-fit: contain; position: relative; right: auto; bottom: auto; height: 150px; margin-top: 20px; }
   
-  .footerFlex { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+  .footerTop { flex-direction: column; text-align: center; gap: 40px; }
+  .footerBrandCol { max-width: 100%; margin: 0 auto; }
+  .footerBtn { margin: 0 auto; }
 }
